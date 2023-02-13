@@ -11,12 +11,14 @@ extern char **environ;
 #include <sys/wait.h>
 
 char **split_str(char *str);
-void simple_shell(void);
+void simple_shell(char *prog_Name);
 int _strlen(const char *str);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, const char *src);
 int count_words(char **str);
 int _setenv(const char *key, const char *value, int overwrite);
+char *_getenv(const char *key);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void chk_interactivity(char *shell_var, char *term_var);
 
 #endif

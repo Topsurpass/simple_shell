@@ -12,7 +12,7 @@ void simple_shell(char *prog_Name)
 	char *my_command = NULL;
 	char **argv = NULL;
 	size_t length = 0;
-	int size, rtr_val, status, wrd_count;
+	int size, rtr_val, status;
 	pid_t pid;
 
 	while (1)
@@ -27,15 +27,9 @@ void simple_shell(char *prog_Name)
 			if (pid == 0)
 			{
 				argv = split_str(my_command);
-				wrd_count = count_words(argv);
-				if (wrd_count == 1)
-				{
-					rtr_val = execve(argv[0], argv, NULL);
-					if (rtr_val == -1)
-						perror(prog_Name);
-				}
-				else if (wrd_count > 1)
-					perror(prog_Name);
+				rtr_val = execve(argv[0], argv, NULL);
+
+				if (rtr_val == -1)
 			}
 			else if (pid > 0)
 				wait(&status);
