@@ -20,5 +20,6 @@ int _setenv(const char *key, const char *value, int overwrite);
 char *_getenv(const char *key);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void chk_interactivity(char *shell_var, char *term_var);
+int _strcmp(char *str1, char *str2);
 
 #endif
