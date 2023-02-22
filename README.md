@@ -30,55 +30,52 @@ read, signal, malloc, free, getcwd, chdir, access, execve, wait, write, exit
 
 ## Description of what each file shows:
 
-man_3_shell ------------------------ custom manpage for our simple shell
 
-main.c ----------------------------- holds entrance into program
+shell.c ----------------------------- holds entrance into program
 
 shell.h ---------------------------- holds prototypes of functions spread across all files
 
-## Helper files
+## Function files
 
-prompt.c --------------------------- handles outline of shell's reprompting and executing
+_atoi.c ------------------ handles string conversion to integers
 
-non_interactive.c ------------------ handles output when shell is called outside of shell
+realloc.c ------------------------- helper function handles reallocation
 
-_realloc.c ------------------------- helper function handles reallocation
+str_func1.c -------------------------- Contains strings functions used
 
-_strcat.c -------------------------- concatenates two strings
+str_func2.c -------------------------- Continuation of strings functions used
 
-_strcmp.c -------------------------- compares if two strings match
+str_func3.c -------------------------- Continuation of strings functions used
 
-_strcpy.c -------------------------- copies a string
+builtin_func1.c -------------------------- Contains builtin functions
 
-_strdup.c -------------------------- duplicates a string
+builtin_func2.c -------------------------- Continuation of builtin functions
 
-_str_tok.c -------------------------- (custom) tokenizes user's command input and returns array
+chng_variables.c -------------------------- Contains functions for changing variable names and aliases
 
-c_str_tok.c ------------------------- tokenizes PATH to include ":" as Null, checks current dir
+parser.c -------------------------- Find command in specified PATH 
 
-get_line.c ------------------------- (custom) reads user's typed input into buffer
+str_tokokenizer.c -------------------------- Tokenizes user's command input and returns array
 
-_which.c --------------------------- appends command to PATHs, fleshes paths out, returns match
+handle_err1.c ------------------------- Handle shell error
 
-_cd.c ------------------------------ changes directories
+handle_err2.c ------------------------- Continuation of functions that handle shell error
 
-linked_lists.c --------------------- adds and deletes nodes; prints and frees linked list
+_getline.c ------------------------- Reads user's typed input into buffer
 
-get_env.c -------------------------- finds and returns copy of environmental variable
+getinfo.c ------------------------------- Initializes the info struct that contains information necessary for our shell
 
-env_linked_list.c ------------------ prints and creates linked list of envrionmental variables
+history.c --------------------------- Handles shell history
 
-set_unset_env.c -------------------- finds environment variable index node, sets and unsets
+memory.c ------------------------------ Handles memory re-allocation and free-ing of memory
 
-free_double_ptr -------------------- frees double pointers (user's command, arrays)
+linked_list1.c --------------------- adds and deletes nodes; prints and frees linked list
 
-_execve.c -------------------------- executes and frees command, then exits program
+linked_list2.c --------------------- Continuation of linked list functions
 
-__exit.c --------------------------- handles if user types exit or exit(value)
+environ.c -------------------------- Finds and returns copy of environmental variable
 
-int_to_string.c -------------------- converts int to string to write error messages
-
-print_error.c ---------------------- prints special error messages for certain fails
+shell_loop.c ---------------------------- Loop through the shell
 
 ## Environment
 
@@ -120,13 +117,11 @@ total 4
 
 -rw-rw-r-- 1 vagrant vagrant    69 Mar 28 19:32 file2.c
 
-$ echo "This is a pretty cool!"
+$ echo "My simple shell program!"
 
-This is pretty cool!
+My simple shell program!
 
-$ man ./man_1_simple_shell (opens our manpage for more information)
-
-## Stop and return to your original shell
+## Stop and return to your original shell or parent program
 
 $ exit
 
